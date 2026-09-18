@@ -12,7 +12,12 @@ llm = AzureChatOpenAI(
     temperature=0,
 )
 
-response = llm.stream("Write a poem about AI")
+response = llm.invoke("Write a poem about AI")
+# print(response)
+response = llm.batch(["calculate 1 + 1 is equal ?", "Write a poem about AI"])
+print(response)
 
-for chunk in response:
-    print(chunk.content, end="", flush=True)
+# response = llm.stream("Write a poem about AI")
+
+# for chunk in response:
+#     print(chunk.content, end="", flush=True)
